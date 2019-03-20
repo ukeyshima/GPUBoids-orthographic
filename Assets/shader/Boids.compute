@@ -1,0 +1,253 @@
+﻿#pragma kernel InfluenceCS
+#pragma kernel IntegrateCS
+
+    struct BoidData{
+        float3 velocity;
+        float3 position;
+        float scale;    
+    };
+
+    struct InfluenceData{
+        float3 force; 
+    };
+
+    #define SIMULATION_BLOCK_SIZE 16
+    StructuredBuffer<BoidData> _BoidDataBufferRead;
+    RWStructuredBuffer<BoidData> _BoidDataBufferWrite;
+    StructuredBuffer<InfluenceData> _BoidInfluenceBufferRead;
+    RWStructuredBuffer<InfluenceData> _BoidInfluenceBufferWrite;
+
+    int _MaxBoidObjectNum;
+
+    float _DeltaTime;
+
+    float _SeparateNeighborhoodRadius;
+    float _AlignmentNeighborhoodRadius;
+    float _CohesionNeighborhoodRadius;
+    float _MouseNeighborhoodRadius;
+
+    float _MaxSpeed;
+    float _MaxSteerForce;
+
+    float _SeparateWeight;
+    float _AlignmentWeight;
+    float _CohesionWeight;
+    float _MouseWeight;
+
+    float4 _WallCenter;
+    float4 _WallSize;
+    float _AvoidWallWeight;
+
+    float2 _MousePosition;
+    float2 _MouseVelocity;
+    float _MouseClick;
+
+    float3 limit(float3 vec, float max){
+        float length = sqrt(dot(vec, vec)); 
+        return (length > max && length > 0) ? vec.xyz * (max / length) : vec.xyz;
+    }
+
+    float3 avoidWall(float3 position){
+        float3 wc = _WallCenter.xyz;
+        float3 ws = _WallSize.xyz;
+        float3 acc = float3(0, 0, 0);
+        acc.x = (position.x < wc.x - ws.x * 0.5) ? acc.x + 1.0 : acc.x;
+        acc.x = (position.x > wc.x + ws.x * 0.5) ? acc.x - 1.0 : acc.x;
+        acc.y = (position.y < wc.y - ws.y * 0.5) ? acc.y + 1.0 : acc.y;
+        acc.y = (position.y > wc.y + ws.y * 0.5) ? acc.y - 1.0 : acc.y;
+        acc.z = (position.z < wc.z - ws.z * 0.5) ? acc.z + 1.0 : acc.z;
+        acc.z = (position.z > wc.z + ws.z * 0.5) ? acc.z - 1.0 : acc.z;
+        return acc;
+    }
+
+    float random1(float3 p){
+        return frac(sin(dot(p.xyz,float3(12.9898,46.2346,78.233)))*43758.5453123)*2.0-1.0;
+    }
+    float random2(float3 p){
+        return frac(sin(dot(p.xyz,float3(73.6134,21.6712,51.5781)))*51941.3781931)*2.0-1.0;
+    }
+    float random3(float3 p){
+        return frac(sin(dot(p.xyz,float3(39.1831,85.3813,16.2981)))*39183.4971731)*2.0-1.0;
+    }
+    float random4(float3 p){
+        return frac(sin(dot(p.xyz,float3(43.5124,51.1244,82.1841)))*73912.1234123)*2.0-1.0;
+    }
+    float random5(float3 p){
+        return frac(sin(dot(p.xyz,float3(52.1344,31.4841,62.1847)))*64819.3839193)*2.0-1.0;
+    }
+    float random6(float3 p){
+        return frac(sin(dot(p.xyz,float3(63.3381,41.3124,97.1324)))*87281.1234123)*2.0-1.0;
+    }
+    float perlinNoise(float3 p){
+        float3 i1=floor(p);    
+        float3 i2=i1+float3(1.0,0.0,0.0);
+        float3 i3=i1+float3(0.0,1.0,0.0);
+        float3 i4=i1+float3(1.0,1.0,0.0);
+        float3 i5=i1+float3(0.0,0.0,1.0);
+        float3 i6=i1+float3(1.0,0.0,1.0);
+        float3 i7=i1+float3(0.0,1.0,1.0);
+        float3 i8=i1+float3(1.0,1.0,1.0);
+        float3 f1=float3(random1(i1),random2(i1),random3(i1));
+        float3 f2=float3(random1(i2),random2(i2),random3(i2));
+        float3 f3=float3(random1(i3),random2(i3),random3(i3));
+        float3 f4=float3(random1(i4),random2(i4),random3(i4));
+        float3 f5=float3(random1(i5),random2(i5),random3(i5));
+        float3 f6=float3(random1(i6),random2(i6),random3(i6));
+        float3 f7=float3(random1(i7),random2(i7),random3(i7));
+        float3 f8=float3(random1(i8),random2(i8),random3(i8));
+        float3 k1=p-i1;
+        float3 k2=p-i2;
+        float3 k3=p-i3;
+        float3 k4=p-i4;
+        float3 k5=p-i5;
+        float3 k6=p-i6;
+        float3 k7=p-i7;
+        float3 k8=p-i8;
+        float3 j=frac(p);
+        j=j*j*(3.0-2.0*j);
+        return lerp(lerp(lerp(dot(f1,k1),dot(f2,k2),j.x),lerp(dot(f3,k3),dot(f4,k4),j.x),j.y),lerp(lerp(dot(f5,k5),dot(f6,k6),j.x),lerp(dot(f7,k7),dot(f8,k8),j.x),j.y),j.z);
+    }
+
+    float perlinNoise2(float3 p){
+        float3 i1=floor(p);    
+        float3 i2=i1+float3(1.0,0.0,0.0);
+        float3 i3=i1+float3(0.0,1.0,0.0);
+        float3 i4=i1+float3(1.0,1.0,0.0);
+        float3 i5=i1+float3(0.0,0.0,1.0);
+        float3 i6=i1+float3(1.0,0.0,1.0);
+        float3 i7=i1+float3(0.0,1.0,1.0);
+        float3 i8=i1+float3(1.0,1.0,1.0);
+        float3 f1=float3(random4(i1),random5(i1),random6(i1));
+        float3 f2=float3(random4(i2),random5(i2),random6(i2));
+        float3 f3=float3(random4(i3),random5(i3),random6(i3));
+        float3 f4=float3(random4(i4),random5(i4),random6(i4));
+        float3 f5=float3(random4(i5),random5(i5),random6(i5));
+        float3 f6=float3(random4(i6),random5(i6),random6(i6));
+        float3 f7=float3(random4(i7),random5(i7),random6(i7));
+        float3 f8=float3(random4(i8),random5(i8),random6(i8));
+        float3 k1=p-i1;
+        float3 k2=p-i2;
+        float3 k3=p-i3;
+        float3 k4=p-i4;
+        float3 k5=p-i5;
+        float3 k6=p-i6;
+        float3 k7=p-i7;
+        float3 k8=p-i8;
+        float3 j=frac(p);
+        j=j*j*(3.0-2.0*j);
+        return lerp(lerp(lerp(dot(f1,k1),dot(f2,k2),j.x),lerp(dot(f3,k3),dot(f4,k4),j.x),j.y),lerp(lerp(dot(f5,k5),dot(f6,k6),j.x),lerp(dot(f7,k7),dot(f8,k8),j.x),j.y),j.z);
+    }      
+
+    groupshared BoidData boid_data[SIMULATION_BLOCK_SIZE];
+
+    [numthreads(SIMULATION_BLOCK_SIZE, 1, 1)]
+    void InfluenceCS(
+        uint3 DTid : SV_DispatchThreadID, 
+        uint3 Gid : SV_GroupID, 
+        uint3 GTid : SV_GroupThreadID, 
+        uint GI : SV_GroupIndex 
+    ){
+        const unsigned int P_ID = DTid.x; 
+        float3 P_position = _BoidDataBufferRead[P_ID].position; 
+        float3 P_velocity = _BoidDataBufferRead[P_ID].velocity;     
+
+        InfluenceData influence;
+        float3 force = float3(0, 0, 0);     
+        force.xz+= float2(perlinNoise(P_position),perlinNoise2(P_position))*10.0;
+        // force = limit(force, _MaxSteerForce); 
+
+        float3 sepPosSum = float3(0, 0, 0); 
+        int sepCount = 0; 
+        float3 aliVelSum = float3(0, 0, 0); 
+        int aliCount = 0; 
+        float3 cohPosSum = float3(0, 0, 0); 
+        int cohCount = 0;  
+
+        [loop]
+        for (uint N_block_ID = 0; N_block_ID < (uint)_MaxBoidObjectNum;N_block_ID += SIMULATION_BLOCK_SIZE){
+            boid_data[GI] = _BoidDataBufferRead[N_block_ID + GI];
+
+            GroupMemoryBarrierWithGroupSync();
+
+            for (int N_tile_ID = 0; N_tile_ID < SIMULATION_BLOCK_SIZE; N_tile_ID++){
+                float3 N_position = boid_data[N_tile_ID].position;
+                float3 N_velocity = boid_data[N_tile_ID].velocity;            
+
+                float3 diff = P_position - N_position;
+                float dist = sqrt(dot(diff, diff));
+
+                if (dist > 0.0 && dist <= _SeparateNeighborhoodRadius){
+                    float3 repulse = normalize(P_position - N_position);
+                    repulse /= dist;
+                    sepPosSum += repulse;
+                    sepCount++; 
+                }
+                if (dist > 0.0 && dist <= _AlignmentNeighborhoodRadius){
+                    aliVelSum += N_velocity; 
+                    aliCount++;
+                }
+                if (dist > 0.0 && dist <= _CohesionNeighborhoodRadius){
+                    cohPosSum += N_position; 
+                    cohCount++; 
+                }            
+            }
+                GroupMemoryBarrierWithGroupSync();
+            }
+            float3 sepSteer = (float3)0.0;
+            if (sepCount > 0){
+                sepSteer = sepPosSum / (float)sepCount; 
+                sepSteer = normalize(sepSteer) * _MaxSpeed; 
+                sepSteer = sepSteer - P_velocity; 
+                sepSteer = limit(sepSteer, _MaxSteerForce); 
+            }
+            float3 aliSteer = (float3)0.0;
+            if (aliCount > 0){
+                aliSteer = aliVelSum / (float)aliCount; 
+                aliSteer = normalize(aliSteer) * _MaxSpeed; 
+                aliSteer = aliSteer - P_velocity; 
+                aliSteer = limit(aliSteer, _MaxSteerForce); 
+            }
+            float3 cohSteer = (float3)0.0;
+            if (cohCount > 0) {
+                cohPosSum = cohPosSum / (float)cohCount;
+                cohSteer = cohPosSum - P_position; 
+                cohSteer = normalize(cohSteer) * _MaxSpeed; 
+                cohSteer = cohSteer - P_velocity; 
+                cohSteer = limit(cohSteer, _MaxSteerForce); 
+            }        
+            
+            float3 mouseSteer=(float3)0.0;
+            float2 diff = _MousePosition-P_position.xz;
+            float dist=sqrt(dot(diff,diff));
+            if(dist<_MouseNeighborhoodRadius && _MouseClick==1){
+                mouseSteer=normalize(float3(diff.x,0.0,diff.y))*_MaxSpeed;
+                mouseSteer= P_velocity-mouseSteer;
+                mouseSteer=limit(mouseSteer,_MaxSteerForce);
+            }else if(dist<_MouseNeighborhoodRadius*2.0 &&_MouseClick==0){
+                mouseSteer=normalize(float3(diff.x,0.0,diff.y))*_MaxSpeed;
+                mouseSteer= -P_velocity+mouseSteer;
+                mouseSteer*=0.005;
+                mouseSteer.y+=0.01;
+                mouseSteer=limit(mouseSteer,_MaxSteerForce);
+            } 
+        force += aliSteer * _AlignmentWeight; 
+        force += cohSteer * _CohesionWeight; 
+        force += sepSteer * _SeparateWeight; 
+        force += mouseSteer*_MouseWeight;        
+        influence.force=force;    
+        _BoidInfluenceBufferWrite[P_ID] = influence; 
+    }
+
+    [numthreads(SIMULATION_BLOCK_SIZE, 1, 1)]
+    void IntegrateCS
+    (uint3 DTid : SV_DispatchThreadID ){
+        const unsigned int P_ID = DTid.x;
+        BoidData b = _BoidDataBufferWrite[P_ID];
+        InfluenceData influence=_BoidInfluenceBufferRead[P_ID];
+        float3 force = influence.force; 
+        force += avoidWall(b.position) * _AvoidWallWeight;
+        b.velocity += force * _DeltaTime;
+        b.velocity = limit(b.velocity, _MaxSpeed);
+        b.position += b.velocity * _DeltaTime;    
+        _BoidDataBufferWrite[P_ID] = b;
+    }

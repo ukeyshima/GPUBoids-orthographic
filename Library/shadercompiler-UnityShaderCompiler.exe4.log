@@ -1,0 +1,102 @@
+Base path: C:/Program Files/Unity/Editor/Data
+Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=4 insize=5770 outsize=1649 ok=1
+Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=4 insize=5786 outsize=1649 ok=1
+Cmd: initializeCompiler
+Cmd: translateComputeKernel
+  api=14 insize=4253 outsize=5585 ok=1
+Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=14 insize=6059 outsize=3693 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=6052 outsize=7301 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=6054 outsize=3693 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=4253 outsize=5585 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=6091 outsize=5089 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=6091 outsize=3693 ok=1
+Cmd: compileComputeKernel
+  error: 2 plat 14 at Boids.compute(152): cannot implicitly convert from 'const float2' to 'float3'
+  api=14 insize=6089 outsize=0 ok=0
+Cmd: compileComputeKernel
+  error: 2 plat 4 at Boids.compute(153): cannot implicitly convert from 'const float2' to 'float3'
+  api=4 insize=6094 outsize=0 ok=0
+Cmd: initializeCompiler
+Cmd: translateComputeKernel
+  api=14 insize=4213 outsize=5521 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=6110 outsize=3693 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=6111 outsize=1649 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=8317 outsize=3693 ok=1
+Cmd: compileComputeKernel
+  error: 2 plat 14 at Boids.compute(235): undeclared identifier 'N_Position'
+  error: 2 plat 14 at Boids.compute(235): undeclared identifier 'perliNoise'
+  api=14 insize=10120 outsize=0 ok=0
+Cmd: initializeCompiler
+Cmd: translateComputeKernel
+  api=14 insize=4213 outsize=5521 ok=1
+Cmd: compileComputeKernel
+  error: 2 plat 4 at Boids.compute(235): undeclared identifier 'P_Position'
+  error: 2 plat 4 at Boids.compute(235): undeclared identifier 'perliNoise'
+  api=4 insize=10121 outsize=0 ok=0
+Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=4 insize=10124 outsize=1649 ok=1
+Cmd: compileComputeKernel
+  error: 2 plat 14 at Boids.compute(235): 'perlinNoise': no matching 1 parameter function
+  error: 2 plat 14 at Boids.compute(235): undeclared identifier 'P_Position'
+  api=14 insize=10122 outsize=0 ok=0
+Cmd: compileComputeKernel
+  api=4 insize=10140 outsize=5113 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=4213 outsize=5521 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=10122 outsize=14385 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=4213 outsize=5521 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=10127 outsize=3693 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=4213 outsize=5521 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=10128 outsize=3693 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=10144 outsize=14433 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=10183 outsize=14665 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=4213 outsize=5521 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=10184 outsize=3693 ok=1
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: translateComputeKernel
+  api=14 insize=17165 outsize=27853 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=16933 outsize=27485 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=10190 outsize=16785 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=10180 outsize=16749 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=4213 outsize=5521 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=10186 outsize=3693 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=10170 outsize=1649 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=16861 outsize=27365 ok=1
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
