@@ -158,10 +158,10 @@
             fixed4 frag (v2f i) : SV_Target{          
                 float3 c=tex2D(_RippleTexture,1.0-i.uv);                                
                 float2 boronoiUV=i.uv+c.xy;
-                boronoiUV.xy+=float2(perlinNoise(float3(i.uv*20.0,_Time.y/2.0)),perlinNoise2(float3(i.uv*20.0,_Time.y/2.0)))/10.0;
-                float boronoiColor= pow(boronoi(float3(boronoiUV.xy*10.0,_Time.y/2.0)),2.5)/3.0;
+                boronoiUV.xy+=float2(perlinNoise(float3(i.uv*10.0,_Time.y/2.0)),perlinNoise2(float3(i.uv*20.0,_Time.y/2.0)))/10.0;
+                float boronoiColor= pow(boronoi(float3(boronoiUV.xy*7.0,_Time.y/2.0)),3.0);
                 float3 color=(float3)boronoiColor;
-                color += step(length(color),0.05)*_Color/5.0;
+                color*=sqrt(dot(color,color))<0.9?_Color:1.0;                
                 float3 grabTex=tex2D(_GrabTexture,1.0-i.uv+c.xy/10.0);                
                 return fixed4(color*0.3+grabTex*0.7,1.0);                
             }

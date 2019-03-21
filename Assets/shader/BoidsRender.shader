@@ -47,9 +47,7 @@
 
                 float4x4 object2world = (float4x4)0;
 
-                v.vertex.x+=sin(v.vertex.y*6.0+_Time.x*150.0)*smoothstep(-0.2,0.66,v.vertex.y)*0.1;                
-
-                // o.vert_color=(float3)v.vertex.z*4.0;
+                v.vertex.x+=sin(v.vertex.y*6.0+_Time.x*150.0)*smoothstep(-0.2,0.66,v.vertex.y)*0.1;                                
 
                 object2world._11_22_33_44 = float4((float3)_ObjectScale*scl, 1.0);
 
@@ -76,7 +74,7 @@
 
         void surf (Input IN, inout SurfaceOutput o){
             half rim = 1.0-saturate(dot (normalize(IN.viewDir), o.Normal));            
-            o.Emission=IN.vert_color* pow (rim, 2.0);
+            o.Emission=IN.vert_color* pow (rim, 1.3);
             o.Alpha=0.9;
         }
         ENDCG

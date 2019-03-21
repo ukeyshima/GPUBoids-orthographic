@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.43858203, g: 0.48669487, b: 0.5669663, a: 1}
+  m_IndirectSpecularColor: {r: 0.43858165, g: 0.48669434, b: 0.5669653, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -272,14 +272,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bc4bf30a364d84fb2c3a8d943ee837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxObjectNum: 12512
-  CohesionNeighborhoodRadius: 1
-  AlignmentNeighborhoodRadius: 1
-  SeparateNeighborhoodRadius: 1
+  MaxObjectNum: 1107
+  CohesionNeighborhoodRadius: 2
+  AlignmentNeighborhoodRadius: 2
+  SeparateNeighborhoodRadius: 2
   MouseNeighborhoodRadius: 1
   MaxSpeed: 3
   MaxSteerForce: 1
-  CohesionWeight: 1
+  CohesionWeight: 2
   AlignmentWeight: 2
   SeparateWeight: 2
   MouseWeight: 100
