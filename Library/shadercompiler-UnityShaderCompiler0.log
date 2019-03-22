@@ -3,16 +3,24 @@ Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
-Cmd: preprocess
-  insize=3144 outsize=1030 ok=1
+Cmd: preprocessCompute
+  insize=9916 outsize=9917 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=9917 outsize=3693 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=4213 outsize=5521 ok=1
 Cmd: initializeCompiler
+Cmd: preprocessCompute
+  insize=9916 outsize=9917 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=9917 outsize=16713 ok=1
 Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
+Cmd: preprocessCompute
+  insize=9912 outsize=9913 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=9913 outsize=16649 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=4213 outsize=5521 ok=1
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler

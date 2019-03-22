@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bc4bf30a364d84fb2c3a8d943ee837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxObjectNum: 1107
+  MaxObjectNum: 141
   CohesionNeighborhoodRadius: 2
   AlignmentNeighborhoodRadius: 2
   SeparateNeighborhoodRadius: 2

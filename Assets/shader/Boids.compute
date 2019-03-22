@@ -223,10 +223,10 @@
                 mouseSteer=normalize(float3(diff.x,0.0,diff.y))*_MaxSpeed;
                 mouseSteer= P_velocity-mouseSteer;
                 mouseSteer=limit(mouseSteer,_MaxSteerForce);
-            }else if(dist<_MouseNeighborhoodRadius*2.0 &&_MouseClick==0){
+            }else if(dist<_MouseNeighborhoodRadius &&_MouseClick==0){
                 mouseSteer=normalize(float3(diff.x,0.0,diff.y))*_MaxSpeed;
                 mouseSteer= -P_velocity+mouseSteer;
-                mouseSteer*=0.005;
+                mouseSteer*=0.01;
                 mouseSteer.y+=0.01;
                 mouseSteer=limit(mouseSteer,_MaxSteerForce);
             } 
