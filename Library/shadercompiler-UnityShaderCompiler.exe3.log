@@ -1,83 +1,89 @@
 Base path: C:/Program Files/Unity/Editor/Data
 Cmd: initializeCompiler
 Cmd: compileComputeKernel
-  api=4 insize=5770 outsize=4629 ok=1
+  api=4 insize=10165 outsize=14361 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=2134 outsize=2129 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=11176 outsize=10709 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=5032 outsize=3733 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=5397 outsize=7573 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=18731 outsize=9405 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=18731 outsize=8693 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=18731 outsize=10469 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=5591 outsize=6445 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=2001 outsize=3541 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=1505 outsize=597 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=2120 outsize=1509 ok=1
 Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  api=4 insize=5770 outsize=4625 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=4165 outsize=5529 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=5770 outsize=1649 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=6869 outsize=11961 ok=1
 Cmd: initializeCompiler
 Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  api=4 insize=6052 outsize=1649 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=6054 outsize=1649 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=4253 outsize=5585 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=6049 outsize=7213 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=6090 outsize=7277 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=6091 outsize=1649 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=6091 outsize=7277 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=7425 outsize=12881 ok=1
 Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  api=14 insize=6115 outsize=6817 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=6965 outsize=12029 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=6115 outsize=3693 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=6110 outsize=7381 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=6004 outsize=3693 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=8317 outsize=5073 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=4213 outsize=5521 ok=1
 Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  api=14 insize=10124 outsize=3693 ok=1
-Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  api=4 insize=10124 outsize=5073 ok=1
-Cmd: compileComputeKernel
-  error: 2 plat 14 at Boids.compute(235): 'perlinNoise': no matching 1 parameter function
-  error: 2 plat 14 at Boids.compute(235): undeclared identifier 'P_Position'
-  api=14 insize=10122 outsize=0 ok=0
-Cmd: compileComputeKernel
-  api=14 insize=10122 outsize=16693 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=16849 outsize=27209 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=10127 outsize=1649 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=16849 outsize=27209 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=16869 outsize=27357 ok=1
 Cmd: translateComputeKernel
   api=14 insize=4213 outsize=5521 ok=1
 Cmd: compileComputeKernel
-  api=14 insize=10184 outsize=16953 ok=1
-Cmd: initializeCompiler
-Cmd: initializeCompiler
+  api=14 insize=10129 outsize=16677 ok=1
 Cmd: compileComputeKernel
-  api=14 insize=10188 outsize=3693 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=10188 outsize=16785 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=10170 outsize=16713 ok=1
+  api=4 insize=10169 outsize=1649 ok=1
 Cmd: translateComputeKernel
-  api=14 insize=16861 outsize=27365 ok=1
+  api=14 insize=4213 outsize=5521 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=10172 outsize=16649 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=10173 outsize=16705 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=4213 outsize=5521 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=10175 outsize=1649 ok=1
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=14 insize=10131 outsize=16601 ok=1
+Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=4 insize=10166 outsize=14353 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=16789 outsize=27209 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=10167 outsize=14353 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=4213 outsize=5521 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=10166 outsize=16641 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=10169 outsize=3693 ok=1
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler

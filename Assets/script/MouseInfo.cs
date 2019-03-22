@@ -14,7 +14,7 @@ public class MouseInfo : MonoBehaviour
         Vector3 MousePosition = Input.mousePosition;
         MousePosition = Camera.main.ScreenToWorldPoint(MousePosition);
         Vector3 WallSize=gpuBoids.WallSize;        
-        return new Vector2(MousePosition.x/WallSize.x*4.0f+0.5f,MousePosition.z/WallSize.z*4.0f+0.5f);
+        return new Vector2(MousePosition.x/WallSize.x*2.0f+0.5f,MousePosition.z/WallSize.z*2.0f+0.5f);
     }
     public Vector2 GetMouseVelocity(){
         float sensitivity = 0.1f; 

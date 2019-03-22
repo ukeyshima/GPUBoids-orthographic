@@ -153,8 +153,7 @@
 
         InfluenceData influence;
         float3 force = float3(0, 0, 0);     
-        force.xz+= float2(perlinNoise(P_position),perlinNoise2(P_position))*10.0;
-        // force = limit(force, _MaxSteerForce); 
+        force.xz+= float2(perlinNoise(P_position),perlinNoise2(P_position))*10.0;        
 
         float3 sepPosSum = float3(0, 0, 0); 
         int sepCount = 0; 
@@ -216,17 +215,17 @@
                 cohSteer = limit(cohSteer, _MaxSteerForce); 
             }        
             
-            float3 mouseSteer=(float3)0.0;
+            float3 mouseSteer=(float3)0.0;            
             float2 diff = _MousePosition-P_position.xz;
             float dist=sqrt(dot(diff,diff));
             if(dist<_MouseNeighborhoodRadius && _MouseClick==1){
                 mouseSteer=normalize(float3(diff.x,0.0,diff.y))*_MaxSpeed;
                 mouseSteer= P_velocity-mouseSteer;
-                mouseSteer=limit(mouseSteer,_MaxSteerForce);
+                // mouseSteer=limit(mouseSteer,_MaxSteerForce);                
+                mouseSteer*=50.0;
             }else if(dist<_MouseNeighborhoodRadius &&_MouseClick==0){
                 mouseSteer=normalize(float3(diff.x,0.0,diff.y))*_MaxSpeed;
-                mouseSteer= -P_velocity+mouseSteer;
-                mouseSteer*=0.01;
+                mouseSteer= -P_velocity+mouseSteer;                
                 mouseSteer.y+=0.01;
                 mouseSteer=limit(mouseSteer,_MaxSteerForce);
             } 

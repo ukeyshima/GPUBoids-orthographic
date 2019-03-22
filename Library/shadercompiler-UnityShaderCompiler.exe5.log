@@ -1,93 +1,91 @@
 Base path: C:/Program Files/Unity/Editor/Data
 Cmd: initializeCompiler
 Cmd: translateComputeKernel
-  api=14 insize=4165 outsize=5529 ok=1
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  api=14 insize=5824 outsize=6865 ok=1
-Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  api=4 insize=6027 outsize=5049 ok=1
+  api=14 insize=16797 outsize=27237 ok=1
 Cmd: translateComputeKernel
-  api=14 insize=7385 outsize=12797 ok=1
+  api=14 insize=2129 outsize=3889 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=6059 outsize=1649 ok=1
+  api=14 insize=1226 outsize=1433 ok=1
 Cmd: compileComputeKernel
-  api=14 insize=6054 outsize=7301 ok=1
+  api=14 insize=3158 outsize=48849 ok=1
 Cmd: compileComputeKernel
-  api=14 insize=6091 outsize=3693 ok=1
+  api=4 insize=11176 outsize=9849 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=11176 outsize=10593 ok=1
 Cmd: translateComputeKernel
-  api=14 insize=7425 outsize=12881 ok=1
+  api=14 insize=11453 outsize=22673 ok=1
 Cmd: compileComputeKernel
-  error: 2 plat 14 at Boids.compute(152): cannot implicitly convert from 'const float2' to 'float3'
-  api=14 insize=6089 outsize=0 ok=0
+  api=14 insize=5032 outsize=5141 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=5805 outsize=8421 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=3265 outsize=5365 ok=1
 Cmd: compileComputeKernel
-  error: 2 plat 4 at Boids.compute(153): cannot implicitly convert from 'const float2' to 'float3'
-  api=4 insize=6094 outsize=0 ok=0
+  api=14 insize=18731 outsize=9953 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=18731 outsize=11797 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=9397 outsize=16205 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=11321 outsize=24805 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=3174 outsize=1329 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=2120 outsize=1033 ok=1
 Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  api=4 insize=6115 outsize=1649 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=6110 outsize=5073 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=6111 outsize=5073 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=6004 outsize=5073 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=7529 outsize=13125 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=8317 outsize=1649 ok=1
-Cmd: compileComputeKernel
-  error: 2 plat 4 at Boids.compute(235): undeclared identifier 'N_Position'
-  error: 2 plat 4 at Boids.compute(235): undeclared identifier 'perliNoise'
-  api=4 insize=10122 outsize=0 ok=0
-Cmd: compileComputeKernel
-  error: 2 plat 4 at Boids.compute(235): undeclared identifier 'N_Position'
-  error: 2 plat 4 at Boids.compute(235): undeclared identifier 'perliNoise'
-  api=4 insize=10120 outsize=0 ok=0
 Cmd: initializeCompiler
-Cmd: translateComputeKernel
-  api=14 insize=7529 outsize=13125 ok=1
-Cmd: compileComputeKernel
-  error: 2 plat 14 at Boids.compute(235): undeclared identifier 'P_Position'
-  error: 2 plat 14 at Boids.compute(235): undeclared identifier 'perliNoise'
-  api=14 insize=10121 outsize=0 ok=0
 Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  error: 2 plat 14 at Boids.compute(235): 'perlinNoise': no matching 1 parameter function
-  error: 2 plat 14 at Boids.compute(235): undeclared identifier 'P_Position'
-  api=14 insize=10122 outsize=0 ok=0
-Cmd: compileComputeKernel
-  api=4 insize=10140 outsize=1649 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=10122 outsize=3693 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=10127 outsize=1649 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=10127 outsize=14393 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=4213 outsize=5521 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=10144 outsize=3693 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=10135 outsize=14433 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=10184 outsize=14665 ok=1
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: compileComputeKernel
-  api=14 insize=10191 outsize=16785 ok=1
+  api=14 insize=10122 outsize=16649 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=10190 outsize=1649 ok=1
+  api=4 insize=10133 outsize=14449 ok=1
 Cmd: compileComputeKernel
-  api=14 insize=10180 outsize=3693 ok=1
+  api=4 insize=10133 outsize=14449 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=10169 outsize=3693 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=10173 outsize=14417 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=10175 outsize=16705 ok=1
 Cmd: translateComputeKernel
-  api=14 insize=16933 outsize=27465 ok=1
+  api=14 insize=16853 outsize=27329 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=10186 outsize=1649 ok=1
+  api=14 insize=10150 outsize=3693 ok=1
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
 Cmd: compileComputeKernel
-  api=4 insize=10170 outsize=1649 ok=1
+  api=14 insize=10131 outsize=3693 ok=1
+Cmd: initializeCompiler
+Cmd: translateComputeKernel
+  api=14 insize=16789 outsize=27205 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=16789 outsize=27205 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=16557 outsize=26813 ok=1
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler

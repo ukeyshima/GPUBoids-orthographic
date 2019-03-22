@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.43858165, g: 0.48669434, b: 0.5669653, a: 1}
+  m_IndirectSpecularColor: {r: 0.43858203, g: 0.48669487, b: 0.5669663, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -272,18 +272,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bc4bf30a364d84fb2c3a8d943ee837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxObjectNum: 141
+  MaxObjectNum: 20400
   CohesionNeighborhoodRadius: 2
   AlignmentNeighborhoodRadius: 2
   SeparateNeighborhoodRadius: 2
-  MouseNeighborhoodRadius: 1
+  MouseNeighborhoodRadius: 3
   MaxSpeed: 3
   MaxSteerForce: 1
   CohesionWeight: 2
-  AlignmentWeight: 2
+  AlignmentWeight: 3
   SeparateWeight: 2
-  MouseWeight: 100
-  AvoidWallWeight: 100
+  MouseWeight: 2
+  AvoidWallWeight: 10
   WallCenter: {x: 0, y: 0, z: 0}
   WallSize: {x: 32, y: 20, z: 24}
   mouseInfo: {fileID: 1921908781}
@@ -373,7 +373,7 @@ Camera:
   far clip plane: 30
   field of view: 70
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -787,7 +787,7 @@ Transform:
   m_GameObject: {fileID: 2143757583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 13, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.2, z: 0.6}
+  m_LocalScale: {x: 1.6, y: 0.4, z: 1.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
